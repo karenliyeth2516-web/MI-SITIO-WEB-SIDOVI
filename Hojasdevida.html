@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoja de Vida</title>
+</head>
+<body>
+
+<h1>📄 Hoja de Vida</h1>
+
+<p><strong>Nombre:</strong> <span id="nombre"></span></p>
+<p><strong>Estado:</strong> <span id="estado"></span></p>
+
+<script>
+// OBTENER DATOS DE LA URL
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("nombre").textContent = params.get("nombre");
+document.getElementById("estado").textContent = params.get("estado");
+</script>
+
+<br><br>
+
+<!-- BOTÓN AGENDAR ENTREVISTA -->
+<button onclick="window.location.href='agenda.html'">
+    Agendar Entrevista
+</button>
+
+<br><br>
+
+<!-- VOLVER -->
+<button onclick="window.location.href='rrhh.html'">
+    Volver
+</button>
+
+</body>
+</html>
