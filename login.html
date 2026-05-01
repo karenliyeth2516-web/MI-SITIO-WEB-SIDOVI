@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login SIDOVI</title>
+</head>
+<body>
+
+<h2>Inicio de Sesión</h2>
+
+<form onsubmit="login(event)">
+
+    <!-- SELECCIÓN DE ROL -->
+    <label>Seleccione su rol:</label><br>
+    <select id="rol" required>
+        <option value="">-- Seleccionar --</option>
+        <option value="rrhh">Recursos Humanos</option>
+        <option value="gerente">Gerente Regional</option>
+    </select><br><br>
+
+    <!-- USUARIO -->
+    <label>Usuario:</label><br>
+    <input type="text" id="usuario" required><br><br>
+
+    <!-- CONTRASEÑA -->
+    <label>Contraseña:</label><br>
+    <input type="password" id="password" required><br><br>
+
+    <button type="submit">Ingresar</button>
+
+</form>
+
+<p id="error" style="color:red;"></p>
+
+<script>
+// VALIDACIÓN SEGÚN ROL
+function login(event) {
+    event.preventDefault();
+
+    let rol = document.getElementById("rol").value;
+    let user = document.getElementById("usuario").value;
+    let pass = document.getElementById("password").value;
+
+    if (rol === "rrhh" && user === "JULIAN FORERO" && pass === "JULIAN123") {
+        window.location.href = "RRHH.html"; // 
+    } 
+    else if (rol === "gerente" && user === "KAREN CORONADO" && pass === "KAREN123") {
+        window.location.href = "gerente.html"; // 
+    } 
+    else {
+        document.getElementById("error").innerText = "❌ Usuario o contraseña incorrectos";
+    }
+}
+</script>
+
+</body>
+</html>
