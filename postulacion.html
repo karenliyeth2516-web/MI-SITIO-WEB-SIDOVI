@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Postulación</title>
+</head>
+<body>
+
+<h1>📝 Formulario de Postulación</h1>
+
+<label>Nombre completo:</label><br>
+<input type="text" id="nombre"><br><br>
+
+<label>Fecha de nacimiento:</label><br>
+<input type="date" id="fecha"><br><br>
+
+<label>Correo electrónico:</label><br>
+<input type="email" id="correo"><br><br>
+
+<label>Número de celular:</label><br>
+<input type="tel" id="celular"><br><br>
+
+<h3>📷 Foto del postulante</h3>
+<input type="file" id="foto" accept="image/*"><br><br>
+<img id="previewFoto" width="150" style="display:none; border:1px solid black;"><br><br>
+
+<h3>📄 Subir hoja de vida</h3>
+<input type="file" id="hojaVida" accept=".pdf,.doc,.docx"><br><br>
+
+<button onclick="enviarPostulacion()">
+    Enviar postulación
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='rrhh.html'">
+    Volver
+</button>
+
+<script>
+// PREVISUALIZAR FOTO
+document.getElementById("foto").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById("previewFoto");
+            img.src = e.target.result;
+            img.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// ENVIAR POSTULACIÓN Y REDIRECCIONAR
+function enviarPostulacion() {
+    const nombre = document.getElementById("nombre").value;
+    const fecha = document.getElementById("fecha").value;
+    const correo = document.getElementById("correo").value;
+    const celular = document.getElementById("celular").value;
+    const hojaVida = document.getElementById("hojaVida").files.length;
+
+    if (!nombre || !fecha || !correo || !celular || hojaVida === 0) {
+        alert("⚠️ Por favor completa todos los campos y sube la hoja de vida");
+        return;
+    }
+
+    // Redirigir a confirmación
+    window.location.href = "confirmacion.html";
+}
+</script>
+
+</body>
+</html>
