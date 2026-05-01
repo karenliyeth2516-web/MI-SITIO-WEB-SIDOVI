@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generar Contrato - SIDOVI</title>
+
+    <script>
+        function generarContrato(event) {
+            event.preventDefault(); // evita que recargue la página
+            alert("Su contrato ha sido generado exitosamente");
+        }
+
+        function volverInicio() {
+            window.location.href = "RRHH.html"; 
+            // cambia "RRHH.html" por la ruta real de tu archivo
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <h2>VINCULACIÓN LABORAL</h2>
+    <h3>Generar contrato</h3>
+
+    <hr>
+
+    <!-- CONTENEDOR -->
+    <table width="100%">
+        <tr>
+
+            <!-- FORMULARIO -->
+            <td width="70%" valign="top">
+
+                <h4>DATOS DEL TRABAJADOR</h4>
+
+                <form onsubmit="generarContrato(event)">
+
+                    <label>Nombre:</label><br>
+                    <input type="text"><br><br>
+
+                    <label>Tipo de documento:</label><br>
+                    <select>
+                        <option>Cédula</option>
+                        <option>Tarjeta de identidad</option>
+                    </select><br><br>
+
+                    <label>Número de documento:</label><br>
+                    <input type="text"><br><br>
+
+                    <label>Teléfono:</label><br>
+                    <input type="text"><br><br>
+
+                    <label>Correo:</label><br>
+                    <input type="email"><br><br>
+
+                    <h4>DATOS DEL SERVICIO</h4>
+
+                    <label>Tipo de servicio:</label><br>
+                    <input type="text"><br><br>
+
+                    <label>Descripción:</label><br>
+                    <textarea></textarea><br><br>
+
+                    <h4>DATOS DEL CONTRATO</h4>
+
+                    <label>Fecha de inicio:</label><br>
+                    <input type="date"><br><br>
+
+                    <label>Fecha de finalización:</label><br>
+                    <input type="date"><br><br>
+
+                    <label>Forma de pago:</label><br>
+                    <input type="text"><br><br>
+
+                    <input type="checkbox"> Incluir cláusulas<br>
+                    <input type="checkbox"> Generar PDF<br>
+                    <input type="checkbox"> Enviar correo<br><br>
+
+                    <!-- BOTONES -->
+                    <button type="submit">Generar Contrato</button>
+                    <button type="reset">Limpiar</button>
+                    <button type="button">Cancelar</button>
+
+                </form>
+
+                <br>
+
+                <!-- BOTÓN VOLVER -->
+                <button onclick="volverInicio()">Volver a Inicio (RRHH)</button>
+
+            </td>
+
+            <!-- VISTA PREVIA -->
+            <td width="30%" valign="top">
+                <h4>VISTA PREVIA DEL CONTRATO</h4>
+                <p>Aquí se mostrará el contrato</p>
+            </td>
+
+        </tr>
+    </table>
+
+</body>
+</html>
